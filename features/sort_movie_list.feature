@@ -18,14 +18,20 @@ Background: movies have been added to database
   | The Incredibles         | PG     | 5-Nov-2004   |
   | Raiders of the Lost Ark | PG     | 12-Jun-1981  |
   | Chicken Run             | G      | 21-Jun-2000  |
+  | lowercase test          | PG-13  | 28-Nov-2013  |
 
   And I am on the RottenPotatoes home page
 
 Scenario: sort movies alphabetically
   When I follow "Movie Title"
+  Then I should see all the movies
+  And I should see "Aladdin" before "Amelie"
+  And I should see "lowercase test" before "Raiders of the Lost Ark"
   # your steps here
 
 Scenario: sort movies in increasing order of release date
   When I follow "Release Date"
+  Then I should see all the movies
+  And I should see "The Terminator" before "Aladdin"
   # your steps here
 
